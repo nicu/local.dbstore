@@ -1,11 +1,11 @@
 {
-  "name": "dbstore",
+  "name": "local.dbstore",
   "version": "0.1.0",
   "description": "Fixture store for Angular projects. All data is persisted in localStorage.",
-  "main": "dbStore.js",
+  "main": "local.dbstore.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nicu/dbStore.git"
+    "url": "git+https://github.com/nicu/local.dbstore.git"
   },
   "keywords": [
     "angular",
@@ -16,12 +16,12 @@
   "author": "Nicu Ciocan (https://github.com/nicu)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nicu/dbStore/issues"
+    "url": "https://github.com/nicu/local.dbstore/issues"
   },
   "scripts": {
     "test": "karma start karma.conf.js"
     },
-  "homepage": "https://github.com/nicu/dbStore#readme",
+  "homepage": "https://github.com/nicu/local.dbstore#readme",
   "devDependencies": {
     "angular": "^1.4.3",
     "angular-mocks": "^1.4.3",

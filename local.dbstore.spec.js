@@ -4,7 +4,7 @@
   describe('dbStore/FixtureStore', function() {
     var FixtureStore, dbStore;
 
-    beforeEach(module('dbStore'));
+    beforeEach(module('localDbStore'));
 
     beforeEach(inject(function(_FixtureStore_, _dbStore_) {
       FixtureStore = _FixtureStore_;

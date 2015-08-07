@@ -17,8 +17,8 @@ module.exports = function(config) {
     files: [
       'node_modules/angular/angular.min.js',
       'node_modules/angular-mocks/angular-mocks.js',
-      'dbStore.js',
-      'dbStore.spec.js'
+      'local.dbstore.js',
+      'local.dbstore.spec.js'
     ],
 
 

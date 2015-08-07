@@ -6,7 +6,7 @@
 (function(window, angular, undefined) {
     'use strict';
 
-    angular.module('dbStore', [])
+    angular.module('localDbStore', [])
       .factory('FixtureStore', function() {
         var __local_store = {};
 

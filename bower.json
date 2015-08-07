@@ -1,8 +1,8 @@
 {
-  "name": "dbstore",
-  "main": "dbStore.js",
+  "name": "local.dbstore",
+  "main": "local.dbstore.js",
   "version": "0.1.0",
-  "homepage": "https://github.com/nicu/dbStore",
+  "homepage": "https://github.com/nicu/local.dbstore",
   "authors": [
     "Nicu Ciocan (https://github.com/nicu)"
   ],
