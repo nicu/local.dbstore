@@ -1,0 +1,24 @@
+{
+  "name": "dbstore",
+  "main": "dbStore.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/nicu/dbStore",
+  "authors": [
+    "Nicu Ciocan (https://github.com/nicu)"
+  ],
+  "description": "Fixture store for Angular projects. All data is persisted in localStorage.",
+  "keywords": [
+    "angular",
+    "fixture",
+    "localstorage",
+    "httpbackend"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

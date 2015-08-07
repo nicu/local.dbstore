@@ -1,0 +1,34 @@
+{
+  "name": "dbstore",
+  "version": "0.1.0",
+  "description": "Fixture store for Angular projects. All data is persisted in localStorage.",
+  "main": "dbStore.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicu/dbStore.git"
+  },
+  "keywords": [
+    "angular",
+    "fixture",
+    "localstorage",
+    "httpbackend"
+  ],
+  "author": "Nicu Ciocan (https://github.com/nicu)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nicu/dbStore/issues"
+  },
+  "scripts": {
+    "test": "karma start karma.conf.js"
+    },
+  "homepage": "https://github.com/nicu/dbStore#readme",
+  "devDependencies": {
+    "angular": "^1.4.3",
+    "angular-mocks": "^1.4.3",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.8",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-phantomjs2-launcher": "^0.3.0"
+  }
+}
