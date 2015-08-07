@@ -1,12 +1,12 @@
 /**
- * @license dbStore v0.1.0
+ * @license LocalDbStore v0.1.1
  * (c) 2015 Nicu Ciocan, https://github.com/nicu
  * License: MIT
  */
 (function(window, angular, undefined) {
     'use strict';
 
-    angular.module('localDbStore', [])
+    angular.module('LocalDbStore', [])
       .factory('FixtureStore', function() {
         var __local_store = {};
 
@@ -187,8 +187,8 @@
         return FixtureStore;
       })
 
-      .factory('dbStore', function(FixtureStore) {
-        var dbStore = function(name) {
+      .factory('localDbStore', function(FixtureStore) {
+        var localDbStore = function(name) {
           var result = {};
 
           angular.forEach(['create', 'update', 'remove', 'findOne', 'findAll'], function(method) {
@@ -205,8 +205,8 @@
           return result;
         };
 
-        dbStore.clear = FixtureStore.clear;
+        localDbStore.clear = FixtureStore.clear;
 
-        return dbStore;
+        return localDbStore;
       });
 })(window, window.angular);

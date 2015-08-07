@@ -1,6 +1,6 @@
 {
   "name": "local.dbstore",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Fixture store for Angular projects. All data is persisted in localStorage.",
   "main": "local.dbstore.js",
   "repository": {

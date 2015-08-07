@@ -1,14 +1,14 @@
 (function() {
   'use strict';
 
-  describe('dbStore/FixtureStore', function() {
-    var FixtureStore, dbStore;
+  describe('localDbStore/FixtureStore', function() {
+    var FixtureStore, localDbStore;
 
-    beforeEach(module('localDbStore'));
+    beforeEach(module('LocalDbStore'));
 
-    beforeEach(inject(function(_FixtureStore_, _dbStore_) {
+    beforeEach(inject(function(_FixtureStore_, _localDbStore_) {
       FixtureStore = _FixtureStore_;
-      dbStore = _dbStore_;
+      localDbStore = _localDbStore_;
     }));
 
     afterEach(function() {
@@ -48,9 +48,9 @@
     });
 
 
-    describe('dbStore', function() {
+    describe('localDbStore', function() {
       it('should create a new item', function() {
-        var item = dbStore('collection').create({
+        var item = localDbStore('collection').create({
           name: 'New Item'
         });
 
@@ -78,18 +78,18 @@
         });
 
         it('should update an existing item', function() {
-          var success = dbStore('collection').update({name: 'Second item'}, {
+          var success = localDbStore('collection').update({name: 'Second item'}, {
             id: 2,
             name: 'Updated'
           });
           expect(success).toBe(true);
 
-          var item = dbStore('collection').findOne({id: 2});
+          var item = localDbStore('collection').findOne({id: 2});
           expect(item.name).toEqual('Updated');
         });
 
         it('should return false when item can\'t be updated', function() {
-          var success = dbStore('collection').update({name: 'Inexistent'}, {
+          var success = localDbStore('collection').update({name: 'Inexistent'}, {
             name: 'This will never be updated'
           });
 
@@ -100,39 +100,39 @@
           var items;
 
           // before
-          items = dbStore('collection').findAll();
+          items = localDbStore('collection').findAll();
           expect(items.length).toBe(3);
 
-          dbStore('collection').remove({id: 1});
+          localDbStore('collection').remove({id: 1});
 
           // after
-          items = dbStore('collection').findAll();
+          items = localDbStore('collection').findAll();
           expect(items.length).toBe(2);
           expect(items[0].name).toEqual('Second item');
           expect(items[1].name).toEqual('Third item');
         });
 
         it('should return a specific item', function() {
-          var item = dbStore('collection').findOne({id: 3});
+          var item = localDbStore('collection').findOne({id: 3});
 
           expect(item.name).toEqual('Third item');
         });
 
         it('should return undefined when item does not exist', function() {
-          var item = dbStore('collection').findOne({id: 10});
+          var item = localDbStore('collection').findOne({id: 10});
 
           expect(item).not.toBeDefined();
         });
 
         it('should return all items', function() {
-          var items = dbStore('collection').findAll();
+          var items = localDbStore('collection').findAll();
 
           expect(items.length).toBe(3);
         });
 
         it('should return items that match criteria', function() {
-          var groupA = dbStore('collection').findAll({group: 'A'});
-          var groupB = dbStore('collection').findAll({group: 'B'});
+          var groupA = localDbStore('collection').findAll({group: 'A'});
+          var groupB = localDbStore('collection').findAll({group: 'B'});
 
           expect(groupA.length).toBe(2);
           expect(groupB.length).toBe(1);
@@ -171,7 +171,7 @@
 
           describe('without associations', function() {
             it('should return all items containing nested resources', function() {
-              var items = dbStore('collection').findAll({}, {include: [{'nested': ['deeplyNested']}]}),
+              var items = localDbStore('collection').findAll({}, {include: [{'nested': ['deeplyNested']}]}),
                 item = items[0];
 
               expect(items.length).toBe(3);
@@ -180,7 +180,7 @@
             });
 
             it('should return one item containing nested resources', function() {
-              var item = dbStore('collection').findOne({id: 1}, {include: [{'nested': ['deeplyNested']}]});
+              var item = localDbStore('collection').findOne({id: 1}, {include: [{'nested': ['deeplyNested']}]});
 
               expect(item.nested.length).toBe(3);
               expect(item.nested[0].deeplyNested.length).toBe(3);
@@ -189,12 +189,12 @@
 
           describe('with associations', function() {
             beforeEach(function() {
-              dbStore('nested').belongsTo([{'collection': 'collection_id'}]);
-              dbStore('deeplyNested').belongsTo([{'nested': 'parent_id'}]);
+              localDbStore('nested').belongsTo([{'collection': 'collection_id'}]);
+              localDbStore('deeplyNested').belongsTo([{'nested': 'parent_id'}]);
             });
 
             it('should return all items containing nested resources', function() {
-              var items = dbStore('collection').findAll({}, {include: [{'nested': ['deeplyNested']}]});
+              var items = localDbStore('collection').findAll({}, {include: [{'nested': ['deeplyNested']}]});
               expect(items.length).toBe(3);
 
               expect(items[0].nested.length).toBe(2);
@@ -206,7 +206,7 @@
             });
 
             it('should return one item containing nested resources', function() {
-              var item = dbStore('collection').findOne({id: 1}, {include: [{'nested': ['deeplyNested']}]});
+              var item = localDbStore('collection').findOne({id: 1}, {include: [{'nested': ['deeplyNested']}]});
 
               expect(item.nested.length).toBe(2);
               expect(item.nested[0].deeplyNested.length).toBe(2);
