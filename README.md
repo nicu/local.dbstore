@@ -171,6 +171,20 @@ $httpBackend.whenGET(USERS_URL).respond(function(method, url, data, headers) {
 });
 ``` 
 
+### Search / Filter
+
+At the moment, the library supports only basic search, meaning that you can specify a field name and it's exact value, there is no support for `like`, `includes`, `greater-than` and so on, but could be added in future versions.
+Eralier we saw that we can get to an item by specifying the `id`. You can specify any other valid property and it will just work.
+
+```js
+$httpBackend.whenGET(USERS_URL).respond(function(method, url, data, headers) {
+  var age = parse(url).age,
+    // find all users with the specified age
+    response = store.findAll({age: age});
+  return [200, response];
+});
+```
+
 
 ### Tips
 If you ever need to clear the collections you saved you can use the browser's console and type: 
