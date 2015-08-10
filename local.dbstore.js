@@ -1,5 +1,5 @@
 /**
- * @license LocalDbStore v0.1.1
+ * @license LocalDbStore v0.1.2
  * (c) 2015 Nicu Ciocan, https://github.com/nicu
  * License: MIT
  */
